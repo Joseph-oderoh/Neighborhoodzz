@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'hoodapp.apps.HoodappConfig',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
