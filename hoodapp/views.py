@@ -44,7 +44,7 @@ def edit_profile(request, username):
             return redirect('profile', user.username)
     else:
         form = UpdateProfileForm(instance=request.user.profile)
-    return render(request, 'editprofile.html', {'form': form})
+    return render(request, 'edit_profile.html', {'form': form})
 
 
 def single_hood(request, hood_id):

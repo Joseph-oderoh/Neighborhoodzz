@@ -53,45 +53,29 @@ class Profile(models.Model):
 
 
 class Business(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
+    name = models.CharField(max_length=120)
+    email = models.EmailField(max_length=254)
     description = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='business')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
     image = CloudinaryField('image', blank=True, null=True)
+    def __str__(self):
+        return f'{self.name} Business'
 
-    # create business
     def create_business(self):
         self.save()
 
-    # delete business
     def delete_business(self):
         self.delete()
 
-    # update business
-    def update_business(self):
-        self.update()
-    
-    def __str__(self):
-        return self.name
+    @classmethod
+    def search_business(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
+
 class Post(models.Model):
-    
-    title = models.CharField(max_length=50)
-    content = models.TextField(blank=True, null=True)
+    title = models.CharField(max_length=120, null=True)
+    post = models.TextField(blank=True, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
+    hood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE,null=True, related_name='hood_post')
     image = CloudinaryField('image', blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, default=1)
-    created_at = models.DateTimeField(auto_now_add=True)
-   
-
-    # create post
-    def create_post(self):
-        self.save()
-
-    # delete post
-    def delete_post(self):
-        self.delete()
-
-    # update post
-    def update_post(self):
-        self.update()
