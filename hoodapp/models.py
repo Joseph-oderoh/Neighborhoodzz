@@ -79,3 +79,17 @@ class Post(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
     hood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE,null=True, related_name='hood_post')
     image = CloudinaryField('image', blank=True, null=True)
+
+
+    # create post
+    def create_post(self):
+        self.save()
+
+    # delete post
+    def delete_post(self):
+        self.delete()
+
+    # update post
+    def update_post(self):
+        self.update()
+

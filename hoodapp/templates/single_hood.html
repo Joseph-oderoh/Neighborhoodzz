@@ -50,6 +50,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{bus.name}}
                                 </h5>
+                                <img src="{{ post.image.url }}" class="card-img" alt="...">
                                 <p class="card-text">{{bus.email}}</p>
                                 <p class="card-text">{{bus.description}}</p>
                                 <p class="card-text">Owner: <small class="text-muted">
@@ -70,7 +71,7 @@
                                 <p class="card-text">" {{post.post}} "
                                 </p>
                                 <p class="card-text">By: <small class="text-white">
-                                    {{ post.user.user.username|title }}</small> <small style="float:right">{{post.date|date}}</small>
+                                    {{ user.username|title }}</small> <small style="float:right">{{post.date|date}}</small>
                                 </p>
                             </div>
                         </div>
