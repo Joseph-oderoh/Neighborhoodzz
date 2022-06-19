@@ -1,6 +1,13 @@
-{%extends 'base.html'%}
-{% load bootstrap4 %} 
+
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-{{block.super}}
-<h1 class="text-center hdz text-dark display-4">Hoodz</h1>
+<div class="container" >
+    <div class="text-white text-center" style="margin-top:15%">
+        <h1>Welcome to HoodWatch</h1>
+        <h5 style="margin-top:6%">Get Started by joining a hood today</h5>
+        <a href="{% url 'hoodz' %}" class="btn btn-sm btn-info mt-4">Join Hood</a>
+    </div>
+
+</div>
 {% endblock %}
