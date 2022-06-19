@@ -15,6 +15,7 @@ class NeighbourHood(models.Model):
     description = models.TextField()
     health_number= models.IntegerField(null=True, blank=True)
     police_count= models.IntegerField(null=True, blank=True)
+    photo=CloudinaryField(blank=True,)
 
     def __str__(self):
         return self.name
