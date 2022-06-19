@@ -1,0 +1,19 @@
+body{
+    background-image: url('../images/hood1.webp');
+    background-size: cover;
+}
+
+.bgr{
+    background-color: rgba(0, 0, 0, 0.432);
+    border: 2px solid blue;
+    border-radius: 45px;
+    width: fit-content;
+    padding: 30px;
+    outline: none;
+    font-family: poppins;
+}
+
+.bgr:hover{
+    background-color: rgb(212, 204, 188);
+    
+}
