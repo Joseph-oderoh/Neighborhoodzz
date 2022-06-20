@@ -1,6 +1,7 @@
 body{
     background-image: url('../images/hood1.webp');
     background-size: cover;
+    font-family: 'Poppins', sans-serif;
 }
 
 .bgr{
@@ -22,4 +23,16 @@ body{
     background-color: black;
     margin-top: 20px;
     border-radius: 45px;
+}
+
+.col-form-label {
+    font-weight: bold;
+}
+.editprofile{
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+.newhood{
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.726);
 }
