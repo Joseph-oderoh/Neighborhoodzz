@@ -5,7 +5,7 @@ from .forms import BusinessForm, NeighbourHoodForm, PostForm, UpdateProfileForm
 
 from .models import Business, NeighbourHood, Post, Profile
 # Create your views here.
-
+@login_required
 def homepage(request):
     return render(request, 'index.html')
 
