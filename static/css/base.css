@@ -36,3 +36,6 @@ body{
     padding-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.726);
 }
+.crd{
+    max-height: fit-content;
+}

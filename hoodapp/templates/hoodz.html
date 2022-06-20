@@ -6,13 +6,20 @@
     <div class="row">
         {% for hood in all_hoods %}
         <div class="col-md-6">
-            <div class="card mb-4">
+            <div class="card mb-4 crd">
                 <img src="{{ hood.photo.url }}" class="card-img-top" alt="{{ hood.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ hood.name }}  ({{hood.location}}) <span class="ml-4">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
-                    <p class="card-text">{{hood.description}}</p>
+                    <p class="card-text"><strong>Description| </strong>{{hood.description}}</p>
+                    </h5>
+                    <h6 class="card-text">
+                        <span><strong>{{hood.members.count}}</strong> Member{{hood.members.count|pluralize}}</span>
+                        | <strong>{{ hood.business.count }}</strong> Businesses | <strong>
+                        {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
+                    </h6>
                     {% if request.user.profile.neighbourhood == hood %}
-                    <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
+                    <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a><br/> <br/>
+                    <a class="text-center"><a class="btn btn-sm btn-info" href="{% url 'single-hood' user.profile.neighbourhood.id %}">{{ user.profile.neighbourhood.name }}</a>
                     {% elif not request.user.profile.neighbourhood %}
                     <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
                     {% endif %}
