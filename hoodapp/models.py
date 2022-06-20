@@ -58,7 +58,6 @@ class Business(models.Model):
     description = models.TextField(blank=True, null=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
-    image = CloudinaryField('image', blank=True, null=True)
     def __str__(self):
         return f'{self.name} Business'
 
