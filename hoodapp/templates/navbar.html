@@ -5,6 +5,7 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {% if user.is_authenticated %}
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link " href="{% url 'hood' %}">Home <span class="sr-only">(current)</span></a>
@@ -27,6 +28,9 @@
           </div>
         </li>
       </ul>
+      {% else %}
+      <a class="dropdown-item" href="#">Login</a>
+       {% endif %}
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
