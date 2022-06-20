@@ -9,7 +9,7 @@ from .models import Business, NeighbourHood, Post, Profile
 def homepage(request):
     return render(request, 'index.html')
 
-
+@login_required
 def hoods(request):
     all_hoods = NeighbourHood.objects.all()
     all_hoods = all_hoods[::-1]
@@ -17,7 +17,7 @@ def hoods(request):
         'all_hoods': all_hoods,
     }
     return render(request, 'hoodz.html', params)
-
+@login_required
 def create_hood(request):
     if request.method == 'POST':
         form = NeighbourHoodForm(request.POST, request.FILES)
